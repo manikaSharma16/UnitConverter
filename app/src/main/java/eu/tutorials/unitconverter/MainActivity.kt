@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -43,11 +47,17 @@ fun UnitConverter(){
         OutlinedTextField(value = "Enter Value", onValueChange = { // Here goes what should happen when the value of our OutlinedTextField changes
              })
         Row {
-            val context = LocalContext.current
-            Button(onClick = { Toast.makeText(context,
-                "Thanks for clicking!", Toast.LENGTH_LONG).show()
-            }) {
-                Text(text = "Click Me!")
+            Box{
+                Button(onClick = { /*TODO*/ }) {
+                   Text(text = "Select")
+                   Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
+                }
+            }
+            Box{
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select")
+                    Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
+                }
             }
         }
         Text(text = "Result:")
