@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -64,11 +66,38 @@ fun UnitConverter(){
                    Text(text = "Select")
                    Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
                 }
+                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                    DropdownMenuItem(
+                        text = { Text("Centimeters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Meters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(text = {Text("Milimeters")},
+                        onClick = { /*TODO*/ }
+                    )
+                }
             }
+            Spacer(modifier = Modifier.height(16.dp))
             Box{
                 Button(onClick = { /*TODO*/ }) {
                     Text(text = "Select")
                     Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
+                }
+                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                    DropdownMenuItem(
+                        text = { Text("Centimeters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Meters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(text = {Text("Milimeters")},
+                        onClick = { /*TODO*/ }
+                    )
                 }
             }
         }
