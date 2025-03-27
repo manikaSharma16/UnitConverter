@@ -22,6 +22,10 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalConsumer
@@ -54,11 +58,51 @@ fun UnitConverter(){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        var inputValue by remember {
+            mutableStateOf("")
+        }
+
+        var outputValue by remember {
+            mutableStateOf("")
+        }
+
+        var inputUnit by remember {
+            mutableStateOf("Centimeters")
+        }
+
+        var outputUnit by remember {
+            mutableStateOf("Meters")
+        }
+
+        var isExpanded by remember {
+            mutableStateOf(false)
+        }
+
+        var iExpanded by remember {
+            mutableStateOf(false)
+        }
+
+        var oExpanded by remember {
+            mutableStateOf(false)
+        }
+
+        var conversionFactor by remember {
+            mutableStateOf(0.01)
+        }
+
         // Here all the UI elements be stacked below each other
         Text(text = "Unit Converter")
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "Enter Value", onValueChange = { // Here goes what should happen when the value of our OutlinedTextField changes
-             })
+        OutlinedTextField(
+            value = inputValue,
+            onValueChange = {
+                inputValue=it
+                // Here goes what should happen when the value of our OutlinedTextField changes
+             },
+            label = {
+                Text("Enter value")
+            }
+        )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
             Box{
@@ -66,7 +110,7 @@ fun UnitConverter(){
                    Text(text = "Select")
                    Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
                         text = { Text("Centimeters") },
                         onClick = { /*TODO*/ }
@@ -86,7 +130,7 @@ fun UnitConverter(){
                     Text(text = "Select")
                     Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
                         text = { Text("Centimeters") },
                         onClick = { /*TODO*/ }
